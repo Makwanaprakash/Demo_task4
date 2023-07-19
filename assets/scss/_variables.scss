@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+$font_mont : 'Montserrat', sans-serif;
+$font_nutio : 'Nunito Sans', sans-serif;
+
+/*------------- color variables ------------*/
+$white: #ffffff;
+$header_bg :rgba(20, 20, 20, 0.3);
+$black_dark: #000000;
+$lightgray : #727272;
+$opacityblack_04 : rgba(0,0,0,0.4);
+$primary : #F7C109;
+$lbl : #637D95;
+$body_bg : #F2F2F2;
+$bor_color : #D7D7D7;
+$box_bg : #F5F5F5;
+$black1: #272727;
+$inborder: #C3C3C3;
+$f_bg: #dddddd;
+
+
+@mixin body_font{
+    font-size: 16px;
+    line-height: 22px;
+    @include mobile-view{
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+@mixin font_14{
+    font-size: 14px;
+    line-height: 18px;
+}
+@mixin font_18{
+    font-size: 18px;
+    line-height: 22px;
+}
+@mixin font_20{
+    font-size: 20px;
+    line-height: 27px;
+    @include mobile-view{
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+@mixin font_23{
+    font-size: 23px;
+    line-height: 30px;
+    @include mobile-view{
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+@mixin font_50{
+    font-size: 50px;
+    line-height: 60px;
+    @include ipad-view{
+        font-size: 40px;
+        line-height: 50px;
+    }
+    @include tab-view{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    @include mobile-view{
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+@mixin solid_btn{
+    background: $primary;
+    border: 2px solid $primary;
+    outline: none;
+    box-shadow: none;
+    @include body_font;
+    font-family:  $font_nutio;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: $black_dark;
+    text-transform: uppercase;
+    transition: 0.3 all ease-in-out;
+    border-radius: 4px;
+    margin-bottom: 0;
+    &:hover{
+        background: transparent;
+        color: $primary;
+    }
+}
+@mixin solid_black_btn{
+    background: $black_dark;
+    border: 2px solid $black_dark;
+    outline: none;
+    box-shadow: none;
+    @include body_font;
+    font-family:  $font_nutio;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: $white;
+    text-transform: uppercase;
+    transition: 0.3 all ease-in-out;
+    border-radius: 4px;
+    margin-bottom: 0;
+    &:hover{
+        background: transparent;
+        color: $black_dark;
+    }
+}
+@mixin border_btn{
+    background: transparent;
+    border: 1px solid $primary;
+    outline: none;
+    box-shadow: none;
+    padding: 15px 30px;
+    color: $primary;
+    text-transform: uppercase;
+    font-family: $font_nutio;
+    font-weight: 400;
+    transition: 0.3 all ease-in-out;
+    margin-bottom: 0;
+    &:hover{
+        background: $primary;
+        color: $white;
+    }
+}
+
+// Resposnive media 
+$mini-screen: 1199px;
+$ipad-view: 991px;
+$tab-view: 767.90px;
+$mobile-view: 558px;
+$mobile-mini-view: 480px;
+
+@mixin mini-screen {
+    @media (max-width: #{$mini-screen}) {
+        @content;
+    }
+}
+@mixin ipad-view {
+    @media (max-width: #{$ipad-view}) {
+        @content;
+    }
+}
+@mixin tab-view {
+    @media (max-width: #{$tab-view}) {
+        @content;
+    }
+}
+@mixin mobile-view {
+    @media (max-width: #{$mobile-view}) {
+        @content;
+    }
+}
+@mixin mobile-mini-view {
+    @media (max-width: #{$mobile-mini-view}) {
+        @content;
+    }
+}

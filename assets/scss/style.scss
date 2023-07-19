@@ -1,0 +1,530 @@
+@import "_variables.scss";
+
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font_mont;
+  @include body_font;
+  background: $white;
+  color: $black_dark;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    color: $lightgray;
+  }
+}
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1320px;
+}
+
+// header section 
+
+.header {
+	background-color: transparent;
+    box-shadow: none;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+    box-shadow: -3px -4px 14px 8px rgb(201 201 201 / 10%);
+    padding: 15px 0;
+    &.sticky{
+        background: $opacityblack_04;
+    }
+    .container{
+        padding: 0 15px;
+        .header_log{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .logo_sec{
+                width: 200px;
+                a{
+                    display: inline-block;
+                }
+            }
+            .header_link{
+                display: flex;
+                gap: 15px;
+                a{
+                    gap: 5px;
+                    display: flex;
+                    align-items: center;
+                    span{
+                        @include tab-view{
+                            display: none;
+                        }
+                    }
+                }
+                .btn_call{
+                    @include solid_btn;
+                    padding: 8px 20px;
+                }
+                .btn_mail{
+                    @include solid_black_btn;
+                    padding: 8px 20px;
+                }
+            }
+        }
+    }
+}
+// banner slider section start
+.banner_section{
+    width: 100%;
+    float: left;
+    display: block;
+    background: $white;
+    .slider_main{
+        position: relative;
+        .slick-slider{
+            .slick-list{
+                .slick-slide{
+                    .slider_inner_box{
+                        position: relative;
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            background: $opacityblack_04;
+                            z-index: 2;
+                        }
+                        img{
+                            width: 100%;
+                            display: block;
+                            position: relative;
+                            z-index: 1;
+                            object-fit: cover;
+                            @include mini-screen{
+                                min-height: 500px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .slick-prev , .slick-next{
+            z-index: 99;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            span{
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $white;
+                border-radius: 100%;
+                i{
+                    font-size: 18px;
+                }
+               }
+        }
+        .slick-prev{
+            left: 60px;
+            @include ipad-view{
+                left: 15px;
+            }
+        }
+        .slick-next{
+            right: 60px;
+            @include ipad-view{
+                right: 15px;
+            }
+        }
+        
+    }
+}
+// banner slider section end
+.serach_box{
+    width: 100%;
+    float: left;
+    display: block;
+    position: relative;
+    top: -200px;
+    z-index: 99;
+    margin-bottom: -100px;
+    .slide_content{
+        width: 100%;
+        height: 100%;
+        @include mini-screen{
+            padding: 0 15px;
+        }
+        .slid_box_content{
+            width: 100%;
+            box-shadow: 1px 0px 27px rgba(0, 0, 0, 0.212);
+            border: 1px solid $bor_color;
+            border-radius: 4px;
+            background: $box_bg;
+            padding: 50px 30px;
+            @include mobile-view{
+                padding: 30px 20px;
+            }
+            .boxtitle{
+                text-align: center;
+                padding-bottom: 15px;
+                h1{
+                    font-family: $font_mont;
+                    font-weight: 600;
+                    @include font_20;
+                    color: $black1;
+                    margin: 0;
+                    padding-bottom: 5px;
+                }
+                h2{
+                    @include body_font;
+                    font-weight: 500;
+                    color: $black1;
+                    padding-bottom: 20px;
+                }
+                p{
+                    font-family: $font_nutio;
+                    @include body_font;
+                    color: $black1;
+                    font-weight: 400;
+                    padding-bottom: 15px;
+                    a{
+                        font-weight: 600;
+                        color: $black1;
+                    }
+                }
+            }
+            .box_form{
+                width: 100%;
+                .form_row{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+                    @include ipad-view{
+                        flex-wrap: wrap;
+                        gap: 10px;
+                    }
+                    .form_col{
+                       width:  calc(100% / 4);
+                       @include ipad-view{
+                        width: calc(100% / 2 - 10px);
+                       }
+                        .form_input{
+                            width: 100%;
+                            background: $white;
+                            border: 1px solid $inborder;
+                            border-radius: 4px;
+                            height: 45px;
+                            @include body_font;
+                            color: $black1;
+                        }
+                        .form_select{
+                            border: 0;
+                            @include body_font;
+                            width: 100%;
+                            background-color: $white;
+                            border: 1px solid $inborder;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            height: 45px;
+                            outline: none;
+                            &:focus{
+                                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+                            }
+                        }
+                    }
+                }
+                .button_Sec{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 20px;
+                    .submit_btn{
+                        @include solid_btn;
+                        margin-bottom: 0;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+// About us section start
+.about_content{
+    width: 100%;
+    float: left;
+    display: block;
+    padding: 50px 0;
+    background: $white;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        left: auto;
+        top: auto;
+        bottom: 0;
+        width: 40%;
+        right: 0;
+        background: url(../images/car.png) no-repeat 100%;
+        display: block;
+        height: 100%;
+        background-size: contain;
+        z-index: 1;
+        @include tab-view{
+            display: none;
+        }
+    }
+    .car_show{
+        display: none;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+        @include tab-view{
+            display: block;
+        }
+    }
+    .le_sec{
+        width: 55%;
+        display: flex;
+        @include tab-view {
+            width: 100%;
+            padding-top: 20px;
+        }
+        .abou_ti{
+            position: relative;
+            width: 63px;
+            span{
+                // transform: rotate(270deg);
+                display: block;
+                white-space: nowrap;
+                width: 100%;
+                text-align: center;
+                transform: matrix(0, -1, 1, 0, 0, 0);
+                position: absolute;
+                top: 167px;
+                left: 5px;
+                color: $lightgray;
+            }
+            &::before{
+                position: absolute;
+                content: "";
+                height: 80px;
+                width: 2px;
+                background: $lightgray;
+                top: 20px;
+                left: 13px;
+            }
+        }
+        .all_ab_content{
+            padding-left: 30px;
+            .title_box{
+                padding-bottom: 50px;
+                h2{
+                    @include font_50;
+                    color: $black_dark;
+                    font-family: $font_mont;
+                    padding-bottom: 15px;
+                    span{
+                        display: block;
+                        font-weight: 600;
+                    }
+                }
+                p{
+                    font-family: $font_nutio;
+                    @include font_18;
+                    font-weight: 400;
+                    color: $lightgray;
+                    padding: 20px 0;
+                }
+            }
+            .abou_info{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+                @include tab-view{
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .infor_box{
+                    width: calc(100%  / 3);
+                    text-align: center;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    @include tab-view{
+                        width: calc(100%  / 2 - 15px);  
+                    }
+                    @include mobile-view{
+                        width: 100%;
+                    }
+                    h3{
+                       @include font_23;
+                       font-family: $font_mont;
+                       font-weight: 500;
+                       color: $black_dark;
+                       padding: 22px 0 8px;
+                    }
+                    p{
+                        @include font_20;
+                        font-family: $font_nutio;
+                        font-weight: 400;
+                        color: $black_dark;
+                    }
+                }
+            }
+            .button_se{
+                width: 100%;
+                padding-top: 20px;
+                @include tab-view{
+                    display: flex;
+                    justify-content: center;
+                }
+                .get_btn{
+                    @include solid_black_btn;
+                    display: inline-flex;
+                    gap: 10px;
+                    align-items: center;
+                    i{
+                        transform: rotate(270deg);
+                    }
+                }
+            }
+        }
+    }
+}
+// About us section end
+
+// drive_with setion start 
+.drive_with{
+    width: 100%;
+    display: block;
+    float: left;
+    background: url('../images/bg_img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 90px 20px;
+    background-size: cover;
+    @include tab-view{
+        padding: 30px 20px;
+    }
+    .box_title{
+        padding-bottom: 30px;
+        text-align: center;
+        h3{
+            @include font_50;
+            font-family: $font_mont;
+            color: $white;
+            font-weight: 700;
+            padding-bottom: 10px;
+        }
+    }
+    .dri_box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        .inner_box{
+            width: calc(100% / 3 - 20px);
+            @include tab-view{
+                width: calc(100% / 2 - 20px);
+            }
+            @include mobile-view{
+                width: calc(100%);
+            }
+            background: $white;
+            border: 1px solid #D7D7D7;
+            border-radius: 10px;
+            padding: 50px 30px;
+            
+            .icon_img{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding-bottom: 30px;
+                .icon_in{
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            .box_contet{
+                text-align: center;
+                h4{
+                    font-family:  $font_mont;
+                    @include font_20;
+                    color: $black_dark;
+                    font-weight: 800;
+                    padding-bottom: 15px;
+                    text-align: center;
+                }
+                p{
+                    font-family: $font_nutio;
+                    color: $lightgray;
+                    @include font_18;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}
+// drive_with setion end
+
+// footer css start
+.footer_section{
+    width: 100%;
+    float: left;
+    display: block;
+    background: $f_bg;
+    padding: 15px 0;
+    .footer_top{
+        text-align: center;
+        p{
+            font-size: 15px;
+            line-height: 20px;
+            font-family: $font_nutio;
+            color: $black_dark;
+            margin-bottom: 0;
+        }
+    }
+}
+// footer css end
